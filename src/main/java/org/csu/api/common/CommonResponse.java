@@ -39,8 +39,16 @@ public class CommonResponse <T> {
         return new CommonResponse<>(ResponseStatus.SUCCESS.getCode(), "SUCCESS", data);
     }
 
+    public static <T> CommonResponse<T> createForSuccess(String message, T data) {
+        return new CommonResponse<>(ResponseStatus.SUCCESS.getCode(), message, data);
+    }
+
     public static <T> CommonResponse<T> createForErrorMessage(String message) {
         return new CommonResponse<>(ResponseStatus.FAIL.getCode(), message);
+    }
+
+    public static <T> CommonResponse<T> createForErrorMessage(int code, String message) {
+        return new CommonResponse<>(code, message);
     }
 
     public static <T> CommonResponse<T> createForArgumentErrorMessage(String message) {
