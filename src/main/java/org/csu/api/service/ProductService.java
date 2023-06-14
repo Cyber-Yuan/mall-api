@@ -9,5 +9,5 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 public interface ProductService {
     CommonResponse<ProductDetailVO> getProductDetail(Integer productId);
-    CommonResponse<Page<Product>> getProductList(Integer categoryId, String keyword, String orderBy, int pageNum, int pageSize);
+    CommonResponse<Page<ProductListVO>> getProductList(Integer categoryId, String keyword, String orderBy, int pageNum, int pageSize);
 }
