@@ -23,4 +23,9 @@ public class CONSTANT {
         String QUESTION = "question";
         String ANSWER = "answer";
     }
+
+    public interface CART_ITEM_STATUS {
+        int CHECKED = 1;
+        int UNCHECKED = 0;
+    }
 }

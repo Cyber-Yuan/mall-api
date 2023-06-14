@@ -28,7 +28,7 @@ public class ProductController {
     }
 
     @GetMapping("/product/list")
-    public CommonResponse<Page<Product>> getProductList(@RequestParam(required = false) Integer categoryId,
+    public CommonResponse<Page<ProductListVO>> getProductList(@RequestParam(required = false) Integer categoryId,
                                                               @RequestParam(required = false) String keyword,
                                                               @RequestParam(defaultValue = "") String orderBy,
                                                               @RequestParam(defaultValue = "1") int pageNum,

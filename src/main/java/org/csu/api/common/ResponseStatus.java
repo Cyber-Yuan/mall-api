@@ -7,7 +7,8 @@ public enum ResponseStatus {
 
     SUCCESS(0, "成功"),
     FAIL(1, "失败"),
-    ARGUMENT_INVALID(10, "参数异常");
+    ARGUMENT_INVALID(10, "参数异常"),
+    NEED_LOGIN(11, "用户未登录");
 
     private final Integer code;
     private final String description;

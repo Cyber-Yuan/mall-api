@@ -56,7 +56,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public CommonResponse<Page<Product>> getProductList(Integer categoryId,String keyword,String orderBy,int pageNum,int pageSize) {
+    public CommonResponse<Page<ProductListVO>> getProductList(Integer categoryId,String keyword,String orderBy,int pageNum,int pageSize) {
         // 判断categoryId和keyword是否都为空，若是，则返回参数错误
         if (StringUtils.isEmpty(keyword) && categoryId == null) {
             return CommonResponse.createForErrorMessage(
@@ -109,7 +109,7 @@ public class ProductServiceImpl implements ProductService {
         });
 
         // 返回CommonResponse，范型为分页对象
-        return CommonResponse.createForSuccess(result);
+        return CommonResponse.createForSuccess(exactResult);
     }
 
     private ProductDetailVO ProductToProductDetailVO(Product product) {
