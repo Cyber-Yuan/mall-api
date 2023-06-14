@@ -127,7 +127,6 @@ public class UserServiceImpl implements UserService {
         // 成功则构造vo对象，并向前端返回
         UserVO userVO = new UserVO();
         BeanUtils.copyProperties(registerUser, userVO);
-        System.out.println(userVO);
         return CommonResponse.createForSuccess("注册成功", userVO);
     }
 
