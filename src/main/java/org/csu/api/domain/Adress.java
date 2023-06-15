@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 @TableName("mystore_address")
 public class Adress {
     private Integer id;
-    @TableField("user_id")
+//    @TableField("user_id")
     private Integer userId;
     @NotBlank(message = "地址名称不能为空")
     private String addressName;

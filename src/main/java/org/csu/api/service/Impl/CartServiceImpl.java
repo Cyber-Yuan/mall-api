@@ -130,11 +130,14 @@ public class CartServiceImpl implements CartService {
 
     @Override
     public CommonResponse<Object> setAllChecked(Integer userId) {
-        UpdateWrapper<CartItem> updateWrapper = new UpdateWrapper<>();
-        updateWrapper.eq("user_id", userId);
-        updateWrapper.set("checked", 1);
-        List<CartItem> cartItemList= cartItemMapper.selectList(updateWrapper);
+        QueryWrapper<CartItem> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("user_id", userId);
+        List<CartItem> cartItemList= cartItemMapper.selectList(queryWrapper);
         for (CartItem cartItem:cartItemList) {
+            UpdateWrapper<CartItem> updateWrapper = new UpdateWrapper<>();
+            updateWrapper.eq("user_id", userId);
+            updateWrapper.eq("product_id", cartItem.getProductId());
+            updateWrapper.set("checked", 1);
             cartItemMapper.update(cartItem, updateWrapper);
         }
         CartVO cartVO = getCartVOAndCheckStock(userId);
@@ -143,11 +146,14 @@ public class CartServiceImpl implements CartService {
 
     @Override
     public CommonResponse<Object> setAllUnchecked(Integer userId) {
-        UpdateWrapper<CartItem> updateWrapper = new UpdateWrapper<>();
-        updateWrapper.eq("user_id", userId);
-        updateWrapper.set("checked", 0);
-        List<CartItem> cartItemList= cartItemMapper.selectList(updateWrapper);
+        QueryWrapper<CartItem> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq("user_id", userId);
+        List<CartItem> cartItemList= cartItemMapper.selectList(queryWrapper);
         for (CartItem cartItem:cartItemList) {
+            UpdateWrapper<CartItem> updateWrapper = new UpdateWrapper<>();
+            updateWrapper.eq("user_id", userId);
+            updateWrapper.eq("product_id", cartItem.getProductId());
+            updateWrapper.set("checked", 0);
             cartItemMapper.update(cartItem, updateWrapper);
         }
         CartVO cartVO = getCartVOAndCheckStock(userId);
@@ -189,7 +195,7 @@ public class CartServiceImpl implements CartService {
         // 从数据库中查询出该用户的购物车信息，返回list
         QueryWrapper<CartItem> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("user_id", userId);
-        List<CartItem> cartItemList= cartItemMapper.selectList(queryWrapper);
+        List<CartItem> cartItemList = cartItemMapper.selectList(queryWrapper);
 
         List<CartItemVO> cartItemVOList = Lists.newArrayList();
 
