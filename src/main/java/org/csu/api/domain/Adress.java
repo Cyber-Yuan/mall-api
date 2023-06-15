@@ -1,5 +1,6 @@
 package org.csu.api.domain;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
@@ -10,7 +11,8 @@ import java.time.LocalDateTime;
 @TableName("mystore_address")
 public class Adress {
     private Integer id;
-    private Integer user_id;
+    @TableField("user_id")
+    private Integer userId;
     @NotBlank(message = "地址名称不能为空")
     private String addressName;
     @NotBlank(message = "地址电话不能为空")

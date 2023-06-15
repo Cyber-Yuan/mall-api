@@ -27,7 +27,7 @@ public class AdressServiceImpl implements AdressService {
                                               String addressProvince, String addressCity, String addressDistrict,
                                               String addressDetail, String addressZip, Integer userId) {
         Adress adress = new Adress();
-        adress.setUser_id(userId);
+        adress.setUserId(userId);
         adress.setAddressName(addressName);
         adress.setAddressPhone(addressPhone);
         adress.setAddressMobile(addressMobile);
@@ -62,7 +62,7 @@ public class AdressServiceImpl implements AdressService {
                                                  String addressDistrict, String addressDetail, String addressZip, Integer userId) {
         Adress adress = new Adress();
         adress.setId(id);
-        adress.setUser_id(userId);
+        adress.setUserId(userId);
         adress.setAddressName(addressName);
         adress.setAddressPhone(addressPhone);
         adress.setAddressMobile(addressMobile);
@@ -88,7 +88,7 @@ public class AdressServiceImpl implements AdressService {
     @Override
     public CommonResponse<AdressVO> findAdress(Integer addressId) {
         Adress adress = adressMapper.selectById(addressId);
-        System.out.println(adress.getUser_id());
+        System.out.println(adress.getUserId());
         AdressVO adressVO = new AdressVO();
         BeanUtils.copyProperties(adress, adressVO);
         return CommonResponse.createForSuccess(adressVO);

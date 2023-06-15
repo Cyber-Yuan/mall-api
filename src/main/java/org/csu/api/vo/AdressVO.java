@@ -9,7 +9,7 @@ import java.time.LocalDateTime;
 @Data
 public class AdressVO {
     private Integer id;
-    private Integer user_id;
+    private Integer userId;
     private String addressName;
     private String addressPhone;
     private String addressMobile;
