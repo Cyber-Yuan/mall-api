@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import org.csu.api.common.CommonResponse;
 import org.csu.api.domain.User;
+import org.csu.api.service.OrderService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -15,6 +16,14 @@ class MallApiApplicationTests {
 
     @Autowired
     private UserMapper userMapper;
+
+    @Autowired
+    private OrderService orderService;
+
+    @Test
+    void testOrder() {
+        orderService.createOrder(365002754, 61607937);
+    }
 
     @Test
     void testSelectUser() {

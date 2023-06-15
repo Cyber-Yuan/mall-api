@@ -88,7 +88,6 @@ public class AdressServiceImpl implements AdressService {
     @Override
     public CommonResponse<AdressVO> findAdress(Integer addressId) {
         Adress adress = adressMapper.selectById(addressId);
-        System.out.println(adress.getUserId());
         AdressVO adressVO = new AdressVO();
         BeanUtils.copyProperties(adress, adressVO);
         return CommonResponse.createForSuccess(adressVO);
